@@ -37,7 +37,7 @@
 export default {
   data() {
     return {
-      startNum:"600",
+      startNum:"5",
       theTime:0,
       timer : null,
       show:true
@@ -48,11 +48,8 @@ export default {
   },
   methods:{
     settime(){
-      
       let Flipper = (function () {
       function Flipper(node, currentTime, nextTime) {
-        this.isFlipping = false;
-        this.duration = 600;
         this.flipNode = node;
         this.frontNode = node.querySelector(".front");
         this.backNode = node.querySelector(".back");
@@ -66,104 +63,99 @@ export default {
         this.backNode.dataset.number = time;
       };
       Flipper.prototype.flipDown = function (currentTime, nextTime) {
-        let that = this;
-        if (this.isFlipping) {
+        if (this.timer) {
           return false;
         }
-        that.isFlipping = true;
-        that.setFrontTime(currentTime);
-        that.setBackTime(nextTime);
-        that.flipNode.classList.add("running");
-      setTimeout( ()=> {
-        that.flipNode.classList.remove("running");
-        that.isFlipping = false;
-        that.setFrontTime(nextTime);
-      }, this.duration);
-    };
-      return Flipper;
-    }());
-    let getTimeFromDate = function (date) {
-      return date
-        .toTimeString()
-        .slice(0, 8)
-        .split(":")
-        .join("");
-    };
-    function formatSeconds(value) {
-      let theTime = parseInt(value);// 秒
-      let min = 0;// 分
-      let hour = 0;// 小时
-      if (theTime > 60) {
-        min = parseInt(theTime / 60);
-        theTime = parseInt(theTime % 60);
-        if (min > 60) {
-          hour = parseInt(min / 60);
-          min = parseInt(min % 60);
-        }
-      }
-      let result;
-      if (parseInt(theTime) < 10) {
-        theTime = "0" + parseInt(theTime);
-        result = "" + theTime;
-      } else {
-        result = "" + parseInt(theTime);
-      }
-
-      if (min > 0) {
-        if (parseInt(min) < 10) {
-          min = "0" + parseInt(min)
-          result = "" + min + result;
-        } else {
-          result = "" + parseInt(min) + result;
-        }
-      }else{
-        result = "00"  + result;
-      }
-      if (hour > 0) {
-        if (parseInt(hour) < 10) {
-          hour = "0" + parseInt(hour)
-          result = "" + hour + result;
-        } else {
-          result = "" + parseInt(hour) + result;
-        }
-      }else{
-        result = "00" + result;
-      }
-      return result;
-    }
-    if(!this.timer){ 
-      this.show = false;
-      let num = this.startNum;
-      let flips = document.querySelectorAll(".flip");
-      let nowTimeStr = formatSeconds(num+1);
-      let nextTimeStr = formatSeconds(num);
-      let flippers = Array.from(flips).map( (flip, i)=> {
-        return new Flipper(flip, nextTimeStr[i], nowTimeStr[i]);
-      });
-
-
-      this.timer=window.setInterval( ()=> {
-       
-        let nowTimeStr = formatSeconds(num - 1);
-        let nextTimeStr = formatSeconds(num);
-        num--;
-        if(num<0){
-          this.show = true;
-          nowTimeStr=0;
-          nextTimeStr=0
-          window.clearInterval(this.timer);
-          this.timer = null;
-        }
-        console.log(nowTimeStr, nextTimeStr)
-        for (let i = 0; i < flippers.length; i++) {
-          if (nowTimeStr[i] === nextTimeStr[i]) {
-            continue;
+        this.timer = true;
+        this.setFrontTime(currentTime);
+        this.setBackTime(nextTime);
+        this.flipNode.classList.add("running");
+        setTimeout( ()=> {
+          this.flipNode.classList.remove("running");
+          this.timer = false;
+          this.setFrontTime(nextTime);
+        }, 600);
+      };
+        return Flipper;
+      }());
+      let getTimeFromDate = function (date) {
+        return date
+          .toTimeString()
+          .slice(0, 8)
+          .split(":")
+          .join("");
+      };
+      function formatSeconds(value) {
+        let theTime = parseInt(value);// 秒/总秒数
+        let min = 0;
+        let hour = 0;
+        if (theTime > 60) {
+          min = parseInt(theTime / 60);
+          theTime = parseInt(theTime % 60);
+          if (min > 60) {
+            hour = parseInt(min / 60);
+            min = parseInt(min % 60);
           }
-          flippers[i].flipDown(nextTimeStr[i],nowTimeStr[i] );
         }
-      }, 1000);
-    }
-    
+        let result;
+        if (parseInt(theTime) < 10) {
+          theTime = "0" + parseInt(theTime);
+          result = "" + theTime;
+        } else {
+          result = "" + parseInt(theTime);
+        }
+
+        if (min > 0) {
+          if (parseInt(min) < 10) {
+            min = "0" + parseInt(min)
+            result = "" + min + result;
+          } else {
+            result = "" + parseInt(min) + result;
+          }
+        }else{
+          result = "00"  + result;
+        }
+        if (hour > 0) {
+          if (parseInt(hour) < 10) {
+            hour = "0" + parseInt(hour)
+            result = "" + hour + result;
+          } else {
+            result = "" + parseInt(hour) + result;
+          }
+        }else{
+          result = "00" + result;
+        }
+        return result;
+      }
+      if(!this.timer){ 
+        this.show = false;
+        let num = this.startNum;
+        let flips = document.querySelectorAll(".flip");
+        let nowTimeStr = formatSeconds(num+1);
+        let nextTimeStr = formatSeconds(num);
+        let flippers = Array.from(flips).map( (flip, i)=> {
+          return new Flipper(flip, nextTimeStr[i], nowTimeStr[i]);
+        });
+        this.timer=window.setInterval( ()=> {
+          let nowTimeStr = formatSeconds(num - 1);
+          let nextTimeStr = formatSeconds(num);
+          num--;
+          if(num<0){
+            this.show = true;
+            nowTimeStr=0;
+            nextTimeStr=0
+            window.clearInterval(this.timer);
+            this.timer = null;
+          }
+          console.log(nowTimeStr, nextTimeStr)
+          for (let i = 0; i < flippers.length; i++) {
+            if (nowTimeStr[i] === nextTimeStr[i]) {
+              continue;
+            }
+            flippers[i].flipDown(nextTimeStr[i],nowTimeStr[i] );
+            }
+        }, 1000);
+      }
     }
   }
 }
