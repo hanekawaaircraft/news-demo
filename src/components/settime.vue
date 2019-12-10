@@ -32,10 +32,9 @@
 export default {
   data() {
     return {
-      startNum:"600",
+      startNum:"05",
       theTime:0,
-      min:0,
-      hour:0
+      timer : null
     };
   },
   mounted(){
@@ -131,13 +130,15 @@ export default {
     });
 
 
-    setInterval( ()=> {
+    this.timer=window.setInterval( ()=> {
       var nowTimeStr = formatSeconds(num - 1);
       var nextTimeStr = formatSeconds(num);
       num--;
       if(num<0){
         nowTimeStr=0;
         nextTimeStr=0
+        window.clearInterval(this.timer);
+        this.timer = null;
       }
       console.log(nowTimeStr, nextTimeStr)
       for (var i = 0; i < flippers.length; i++) {
@@ -147,6 +148,7 @@ export default {
         flippers[i].flipDown(nextTimeStr[i],nowTimeStr[i] );
       }
     }, 1000);
+   
   },
   methods:{
    
