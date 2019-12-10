@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="timer">
     <div>
       <p v-show="show" @click="settime()" >点击倒计时</p>
     </div>
@@ -37,7 +37,7 @@
 export default {
   data() {
     return {
-      startNum:"10",
+      startNum:"600",
       theTime:0,
       timer : null,
       show:true
@@ -168,8 +168,8 @@ export default {
   }
 }
 </script>
-<style>
-  body {
+<style scope>
+  .timer {
   display: flex;
   justify-content: center;
   align-items: center;
