@@ -1,30 +1,35 @@
 <template>
-  <div class="clock">
-    <div class="flip">
-      <div class="digital front" data-number="0"></div>
-      <div class="digital back" data-number="1"></div>
+  <div>
+    <div>
+      <p v-show="show" @click="settime()" >点击倒计时</p>
     </div>
-    <div class="flip">
-      <div class="digital front" data-number="0"></div>
-      <div class="digital back" data-number="1"></div>
-    </div>
-    <em class="divider">:</em>
-    <div class="flip">
-      <div class="digital front" data-number="0"></div>
-      <div class="digital back" data-number="1"></div>
-    </div>
-    <div class="flip">
-      <div class="digital front" data-number="0"></div>
-      <div class="digital back" data-number="1"></div>
-    </div>
-    <em class="divider">:</em>
-    <div class="flip">
-      <div class="digital front" data-number="0"></div>
-      <div class="digital back" data-number="1"></div>
-    </div>
-    <div class="flip">
-      <div class="digital front" data-number="0"></div>
-      <div class="digital back" data-number="1"></div>
+    <div v-show="!show" class="clock">
+      <div class="flip">
+        <div class="digital front" data-number="0"></div>
+        <div class="digital back" data-number="1"></div>
+      </div>
+      <div class="flip">
+        <div class="digital front" data-number="0"></div>
+        <div class="digital back" data-number="1"></div>
+      </div>
+      <em class="divider">:</em>
+      <div class="flip">
+        <div class="digital front" data-number="0"></div>
+        <div class="digital back" data-number="1"></div>
+      </div>
+      <div class="flip">
+        <div class="digital front" data-number="0"></div>
+        <div class="digital back" data-number="1"></div>
+      </div>
+      <em class="divider">:</em>
+      <div class="flip">
+        <div class="digital front" data-number="0"></div>
+        <div class="digital back" data-number="1"></div>
+      </div>
+      <div class="flip">
+        <div class="digital front" data-number="0"></div>
+        <div class="digital back" data-number="1"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -32,13 +37,19 @@
 export default {
   data() {
     return {
-      startNum:"05",
+      startNum:"10",
       theTime:0,
-      timer : null
+      timer : null,
+      show:true
     };
   },
   mounted(){
-    var Flipper = (function () {
+    // this.settime()
+  },
+  methods:{
+    settime(){
+      
+      let Flipper = (function () {
       function Flipper(node, currentTime, nextTime) {
         this.isFlipping = false;
         this.duration = 600;
@@ -48,21 +59,21 @@ export default {
         this.setFrontTime(currentTime);
         this.setBackTime(nextTime);
       }
-    Flipper.prototype.setFrontTime = function (time) {
-      this.frontNode.dataset.number = time;
-    };
-    Flipper.prototype.setBackTime = function (time) {
-      this.backNode.dataset.number = time;
-    };
-    Flipper.prototype.flipDown = function (currentTime, nextTime) {
-      var that = this;
-      if (this.isFlipping) {
-        return false;
-      }
-      this.isFlipping = true;
-      this.setFrontTime(currentTime);
-      this.setBackTime(nextTime);
-      this.flipNode.classList.add("running");
+      Flipper.prototype.setFrontTime = function (time) {
+        this.frontNode.dataset.number = time;
+      };
+      Flipper.prototype.setBackTime = function (time) {
+        this.backNode.dataset.number = time;
+      };
+      Flipper.prototype.flipDown = function (currentTime, nextTime) {
+        let that = this;
+        if (this.isFlipping) {
+          return false;
+        }
+        that.isFlipping = true;
+        that.setFrontTime(currentTime);
+        that.setBackTime(nextTime);
+        that.flipNode.classList.add("running");
       setTimeout( ()=> {
         that.flipNode.classList.remove("running");
         that.isFlipping = false;
@@ -71,7 +82,7 @@ export default {
     };
       return Flipper;
     }());
-    var getTimeFromDate = function (date) {
+    let getTimeFromDate = function (date) {
       return date
         .toTimeString()
         .slice(0, 8)
@@ -79,9 +90,9 @@ export default {
         .join("");
     };
     function formatSeconds(value) {
-      var theTime = parseInt(value);// 秒
-      var min = 0;// 分
-      var hour = 0;// 小时
+      let theTime = parseInt(value);// 秒
+      let min = 0;// 分
+      let hour = 0;// 小时
       if (theTime > 60) {
         min = parseInt(theTime / 60);
         theTime = parseInt(theTime % 60);
@@ -90,7 +101,7 @@ export default {
           min = parseInt(min % 60);
         }
       }
-      var result;
+      let result;
       if (parseInt(theTime) < 10) {
         theTime = "0" + parseInt(theTime);
         result = "" + theTime;
@@ -120,38 +131,40 @@ export default {
       }
       return result;
     }
- 
-    var num = this.startNum;
-    var flips = document.querySelectorAll(".flip");
-    var nowTimeStr = formatSeconds(num+1);
-    var nextTimeStr = formatSeconds(num);
-    var flippers = Array.from(flips).map( (flip, i)=> {
-      return new Flipper(flip, nextTimeStr[i], nowTimeStr[i]);
-    });
+    if(!this.timer){ 
+      this.show = false;
+      let num = this.startNum;
+      let flips = document.querySelectorAll(".flip");
+      let nowTimeStr = formatSeconds(num+1);
+      let nextTimeStr = formatSeconds(num);
+      let flippers = Array.from(flips).map( (flip, i)=> {
+        return new Flipper(flip, nextTimeStr[i], nowTimeStr[i]);
+      });
 
 
-    this.timer=window.setInterval( ()=> {
-      var nowTimeStr = formatSeconds(num - 1);
-      var nextTimeStr = formatSeconds(num);
-      num--;
-      if(num<0){
-        nowTimeStr=0;
-        nextTimeStr=0
-        window.clearInterval(this.timer);
-        this.timer = null;
-      }
-      console.log(nowTimeStr, nextTimeStr)
-      for (var i = 0; i < flippers.length; i++) {
-        if (nowTimeStr[i] === nextTimeStr[i]) {
-          continue;
+      this.timer=window.setInterval( ()=> {
+       
+        let nowTimeStr = formatSeconds(num - 1);
+        let nextTimeStr = formatSeconds(num);
+        num--;
+        if(num<0){
+          this.show = true;
+          nowTimeStr=0;
+          nextTimeStr=0
+          window.clearInterval(this.timer);
+          this.timer = null;
         }
-        flippers[i].flipDown(nextTimeStr[i],nowTimeStr[i] );
-      }
-    }, 1000);
-   
-  },
-  methods:{
-   
+        console.log(nowTimeStr, nextTimeStr)
+        for (let i = 0; i < flippers.length; i++) {
+          if (nowTimeStr[i] === nextTimeStr[i]) {
+            continue;
+          }
+          flippers[i].flipDown(nextTimeStr[i],nowTimeStr[i] );
+        }
+      }, 1000);
+    }
+    
+    }
   }
 }
 </script>
