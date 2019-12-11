@@ -5,9 +5,8 @@
         <li class="l-btn" onclick="window.history.go(-1)"></li>
       </ul>
     </div>
-   
+    <div class="newsId">需要分享的新闻id:{{id}}</div>
     <div class="fxList">
-      
       <div>
         <i v-show="switchLike" @click="switchLikePng">
           <img src="../assets/img/QQ0.png"/>
@@ -35,7 +34,7 @@
         </i>
         <p>分享至微博</p>
       </div>
-    </div> {{id}}
+    </div> 
     
   </div>
 </template>
@@ -96,8 +95,12 @@ body {
   background-size: 100%;
   margin: 0 0 0 0.38rem;
 }
+.newsId{
+  margin-top: 70px;
+  text-align: center;
+}
 .fxList{
-  margin-top:60px;
+  margin-top:10px;
   display: flex;
   flex-direction: row; 
   flex-wrap:nowrap;
