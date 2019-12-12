@@ -191,7 +191,7 @@ body {
 .foot-btn ul .home {
   width: 0.44rem;
   height: 0.59rem;
-  background: url(../img/home1.png) no-repeat 0 0;
+  
   background-size: 100%;
   margin-top: 0.1rem;
 }
@@ -205,7 +205,7 @@ body {
 .foot-btn ul .my {
   width: 0.39rem;
   height: 0.63rem;
-  background: url(../img/my1.png) no-repeat 0 0;
+ 
   background-size: 100%;
   margin-left: 1.18rem;
   margin-top: 0.07rem;

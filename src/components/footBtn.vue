@@ -1,40 +1,38 @@
 <template>
-  <div>
-    <div class="foot-btn">
-      <ul>
-        <li class="say">
+  <div class="foot-btn">
+    <ul>
+      <li class="say">
+        <a href="javascript:;">
+          <i></i>
+          <span>999+</span>
+        </a>
+      </li>
+      <li class="zan">
+        <a href="javascript:;" @click="likeAdd">
+          <i></i>
+          <span>{{likeCount}}</span>
+        </a>
+      </li>
+      <li class="xing">
+        <a href="javascript:;">
+          <i v-show="switchLike" @click="switchLikePng">
+            <img src="../assets/img/like0.png" />
+          </i>
+          <i v-show="!switchLike" @click="switchLikePng">
+            <img src="../assets/img/like1.png" alt />
+          </i>
+        </a>
+      </li>
+      <li class="fx">
+        <router-link :to="'/fx/' + id">
           <a href="javascript:;">
-            <i></i>
-            <span>999+</span>
-          </a>
-        </li>
-        <li class="zan">
-          <a href="javascript:;" @click="likeAdd">
-            <i></i>
-            <span>{{likeCount}}</span>
-          </a>
-        </li>
-        <li class="xing">
-          <a href="javascript:;">
-            <i v-show="switchLike" @click="switchLikePng">
-              <img src="../assets/img/like0.png" />
-            </i>
-            <i v-show="!switchLike" @click="switchLikePng">
-              <img src="../assets/img/like1.png" alt />
+            <i>
+              <img src="../assets/img/fx.png"/>
             </i>
           </a>
-        </li>
-        <li class="fx">
-          <router-link :to="'/fx/' + id">
-            <a href="javascript:;">
-              <i>
-                <img src="../assets/img/fx.png" alt />
-              </i>
-            </a>
-          </router-link>
-        </li>
-      </ul>
-    </div>
+        </router-link>
+      </li>
+    </ul>
   </div>
 </template>
 <script>
@@ -91,6 +89,7 @@ body {
   overflow-x: hidden;
 }
 .foot-btn {
+  z-index: 999;
   width: 100%;
   height: 0.8rem;
   background: #fff;

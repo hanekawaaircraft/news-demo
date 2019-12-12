@@ -36,3 +36,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  img{
+    width: 0.44rem;
+    background-size: 100%;
+  }
+</style>

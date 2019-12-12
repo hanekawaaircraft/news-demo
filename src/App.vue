@@ -51,7 +51,9 @@ export default {
       }
     },
     footerChange(path) {
-      if (path == "followdata"   ||
+      if (path == "Home"   ||
+        path == "Follow" ||
+        path == "Column" ||
         path.indexOf("article") == -1) {
         this.$store.dispatch("showFooter");
       } else {
