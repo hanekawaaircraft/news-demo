@@ -1,18 +1,38 @@
 <template>
   <div class="foot-btn">
     <ul>
-      <!-- <li class="home"><a href="index.html"></a></li>
-	    		        <li class="write"><a href="javascript:;"></a></li>
-	    		        <li class="my"><a href="mydoc.html"></a></li> -->
       <router-link class="home" to="/home" tag="li">
-        <a href="javascript:;"></a>
+        <a href="javascript:;">
+          <img :src="'/home' === $route.path ? switchIcon[0].selected : switchIcon[0].normal">
+        </a>
       </router-link>
+  
       <router-link class="write" to="/settime" tag="li">
         <a href="javascript:;"></a>
       </router-link>
+  
       <router-link class="my" to="/user-info" tag="li">
-        <a href="javascript:;"></a>
+        <a href="javascript:;">
+          <img :src="'/user-info' === $route.path ? switchIcon[1].selected : switchIcon[1].normal">
+        </a>
       </router-link>
     </ul>
   </div>
 </template>
+
+<script>
+export default {
+  data(){
+    return {
+      switchIcon:[   //图片切换
+        {normal: require('../assets/img/home1.png'), selected: require('../assets/img/home.png')},
+        {normal: require('../assets/img/my1.png'), selected: require('../assets/img/my.png')},
+        
+      ]
+    }
+  },
+  methods:{
+    
+  }
+}
+</script>
