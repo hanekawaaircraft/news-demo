@@ -1,15 +1,17 @@
 import Vue from "vue";
-import App from "./App.vue";
 import VueRouter from "vue-router";
+import App from "./App.vue";
 import axios from "axios";
-import { Swipe, SwipeItem } from 'vue-swipe' 
 
 import stores from "./store/store";
 import routes from "./router.js";
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
+Vue.use(ElementUI);
 Vue.use(VueRouter);
-Vue.component('swipe', Swipe)  // 加这里
-Vue.component('swipe-item', SwipeItem);
+
+
 
 
 require("./assets/css/base.css");
@@ -20,8 +22,6 @@ const router = new VueRouter({
   routes
 });
 
-//axios的一些配置，比如发送请求显示loading，请求回来loading消失之类的
-//
 axios.interceptors.request.use(
   function(config) {
     //配置发送请求的信息

@@ -125,7 +125,7 @@ body {
   right: 0.1rem;
 }
 .content ul {
-  width: 290px;
+  width: 5.78rem;
   border: 1px solid #e5e7e8;
   background: #fff;
   margin: 0 auto;

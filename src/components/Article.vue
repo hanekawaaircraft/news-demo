@@ -7,7 +7,7 @@
     </div>
     <div class="content">
       <div class="header clear">
-        <p>新华社{{id}}</p>
+        <p>新闻编号:{{id}}</p>
       </div>
       <div class="cont">
         <h3>{{ articleData.title }}</h3>
@@ -26,8 +26,20 @@
       <ul>
         <li class="say">
           <a href="javascript:;">
-            <i></i>
-            <span>999+</span>
+            
+            <el-button type="text" @click="centerDialogVisible=true"><i></i>999+</el-button>
+            <el-dialog
+              title="评论"
+              :modal="false"
+              :modal-append-to-body="false"
+              :visible.sync="centerDialogVisible"
+              width="80%"
+              center>
+              <el-input type="textarea" placeholder="请输入您的评论"></el-input>
+              <div slot="footer" class="dialog-footer">
+                <el-button type="primary" @click="centerDialogVisible=false">提交</el-button>
+              </div>
+            </el-dialog>
           </a>
         </li>
         <li class="zan">
@@ -50,7 +62,7 @@
           <router-link :to="'/fx/' + id">
             <a href="javascript:;">
               <i>
-                <img src="../assets/img/fx.png" alt />
+                <img src="../assets/img/fx.png"/>
               </i>
             </a>
           </router-link>
@@ -66,6 +78,7 @@ export default {
       articleData: {},
       likeCount:0,
       switchLike:true,
+      centerDialogVisible: false,
       id:''
     };
   },
@@ -94,7 +107,7 @@ export default {
         .catch(function(err) {
           console.log("文章详细页面:", err);
         });
-    }
+    },
   },
   watch: {
     $route(to) {
@@ -233,15 +246,10 @@ body {
   background-size: 100%;
   float: left;
   margin-left: 0.7rem;
-  margin-top: 0.13rem;
+  margin-top: -2px;
+  margin-right: 5px;
 }
-.say span {
-  height: 0.26rem;
-  float: left;
-  line-height: 0.26rem;
-  margin-left: 0.16rem;
-  margin-top: 0.13rem;
-}
+
 .foot-btn ul .zan {
   width: 1.86rem;
   height: 0.52rem;
@@ -292,4 +300,6 @@ body {
 .fx i img {
   width: 100%;
 }
+
+
 </style>

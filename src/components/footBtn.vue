@@ -38,7 +38,6 @@
 <script>
 export default {
   mounted() {
-    this.fetchData(this.$route.params.id);
 
     //发送 隐藏footer的 action
     if (this.$route.path.indexOf("followdata") > 0) {
@@ -57,8 +56,7 @@ export default {
     $route(to) {
       var reg = /followdata\/\d+/;
       if (reg.test(to.path)) {
-        var colId = this.$route.params.id || 0;
-        this.fetchData(colId);
+        var folId = this.$route.params.id || 0;
       }
     }
   },
@@ -68,17 +66,6 @@ export default {
     },
     likeAdd(){
       this.likeCount++;
-    },
-    fetchData(id) {
-      var that = this;
-      this.$http
-        .get("../src/data/follow.data")
-        .then(function(res) {
-          that.followdata = res.data[id - 1];
-        })
-        .catch(function(err) {
-          // console.log("文章详细页面:", err);
-        });
     }
   }
 };
