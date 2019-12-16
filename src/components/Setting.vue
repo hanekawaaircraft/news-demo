@@ -101,7 +101,7 @@
   padding-right: 10px;
   padding-bottom: 10px;
 }
- .nav {
+.nav {
   width: 100%;
   position: fixed;
   top: 0;
