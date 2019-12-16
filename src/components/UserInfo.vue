@@ -37,12 +37,14 @@
           <b></b>
           <span>0</span>
         </li>
-        <li class="sc-text">
-          <i></i>
-          <p>收藏夹</p>
-          <b></b>
-          <span>0</span>
-        </li>
+        <router-link :to="'/collect/'">
+          <li class="sc-text">
+            <i></i>
+            <p>收藏夹</p>
+            <b></b>
+            <span>0</span>
+          </li>
+        </router-link>
         <router-link :to="'/setting/'">
           <li class="my_cz">
             <i></i>

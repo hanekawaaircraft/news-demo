@@ -13,6 +13,7 @@ import Forget from "./components/Forget.vue";
 import settime from "./components/settime.vue";
 import fx from "./components/Fx.vue";
 import setting from "./components/Setting.vue";
+import collect from "./components/admin/collect.vue";
 
 export default [
   {
@@ -51,6 +52,10 @@ export default [
   {
     path: "/setting",
     component: setting
+  },
+  {
+    path: "/collect",
+    component: collect
   },
   {
     path: "/fx/:id",

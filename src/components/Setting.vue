@@ -11,8 +11,8 @@
       </el-form-item>
       <el-form-item label="地址" prop="region">
         <el-select v-model="ruleForm.region" placeholder="请选择活动区域">
-          <el-option label="区域一" value="shanghai"></el-option>
-          <el-option label="区域二" value="beijing"></el-option>
+          <el-option label="上海" value="shanghai"></el-option>
+          <el-option label="北京" value="beijing"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="会员" prop="delivery">
@@ -72,9 +72,9 @@
           resource: [
             { required: true, message: '请选择“资源”，建议直接交给我', trigger: 'change' }
           ],
-          desc: [
-            { required: true, message: '这里是意见反馈', trigger: 'blur' }
-          ]
+          // desc: [
+          //   { message: '这里是意见反馈', trigger: 'blur' }
+          // ]
         }
       }
     },
@@ -97,7 +97,7 @@
 </script>
 <style scoped>
 .content{
-  margin-top:40px;
+  margin-top:50px;
   padding-right: 10px;
   padding-bottom: 10px;
 }
