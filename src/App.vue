@@ -43,6 +43,7 @@ export default {
         path == "user-reg" ||
         path == "user-login" ||
         path == "forget"   ||
+        path == "setting"   ||
         path.indexOf("article") != -1
       ) {
         this.$store.dispatch("SHOW_HEAD_FAIL");

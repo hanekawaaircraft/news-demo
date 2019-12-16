@@ -37,6 +37,11 @@
       <li></li>
     </ol>
   </div>
+   <!-- <el-carousel :interval="5000" arrow="always">
+    <el-carousel-item v-for="item in 4" :key="item">
+      <h3>{{ item }}</h3>
+    </el-carousel-item>
+  </el-carousel> -->
 </template>
 <script>
 export default {
@@ -52,14 +57,14 @@ export default {
     lbSlider() {
       $(function() {
         var mySwipe = new Swipe($(".banner")[0], {
-          auto: 2000,
-          continuous: true,
-          stopPropation: true,
-          callback: function(index, element) {
-            $(".banner ol li").removeClass("active");
-            $(".banner ol li")
-              .eq(index)
-              .addClass("active");
+          auto: 2000,  
+          continuous: true, 
+          stopPropation: true,   
+          callback: function(index, element) { 
+            $(".banner ol li").removeClass("active"); 
+            $(".banner ol li") 
+              .eq(index) 
+              .addClass("active"); 
           }
         });
       });
@@ -67,3 +72,20 @@ export default {
   }
 };
 </script>
+<style scoped>
+   /* .el-carousel__item h3 {
+    color: #475669;
+    font-size: 18px;
+    opacity: 0.75;
+    line-height: 300px;
+    margin: 0;
+  }
+  
+  .el-carousel__item:nth-child(2n) {
+    background-color: #96b7e6;
+  }
+  
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #7593b6;
+  } */
+</style>

@@ -12,6 +12,7 @@ import FollowData from "./components/FollowData.vue";
 import Forget from "./components/Forget.vue";
 import settime from "./components/settime.vue";
 import fx from "./components/Fx.vue";
+import setting from "./components/Setting.vue";
 
 export default [
   {
@@ -46,6 +47,10 @@ export default [
   {
     path: "/settime",
     component: settime
+  },
+  {
+    path: "/setting",
+    component: setting
   },
   {
     path: "/fx/:id",
