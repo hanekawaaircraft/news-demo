@@ -26,7 +26,6 @@
       <ul>
         <li class="say">
           <a href="javascript:;">
-            
             <el-button type="text" @click="centerDialogVisible=true"><i></i>999+</el-button>
             <el-dialog
               title="评论"

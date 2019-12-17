@@ -3,8 +3,19 @@
     <ul>
       <li class="say">
         <a href="javascript:;">
-          <i></i>
-          <span>999+</span>
+          <el-button type="text" @click="centerDialogVisible=true"><i></i>999+</el-button>
+          <el-dialog
+            title="评论"
+            :modal="false"
+            :modal-append-to-body="false"
+            :visible.sync="centerDialogVisible"
+            width="80%"
+            center>
+            <el-input type="textarea" placeholder="请输入您的评论"></el-input>
+            <div slot="footer" class="dialog-footer">
+              <el-button type="primary" @click="centerDialogVisible=false">提交</el-button>
+            </div>
+          </el-dialog>
         </a>
       </li>
       <li class="zan">
@@ -37,27 +48,19 @@
 </template>
 <script>
 export default {
-  mounted() {
-
-    //发送 隐藏footer的 action
-    if (this.$route.path.indexOf("followdata") > 0) {
-      this.$store.dispatch("hideFooter");
-    }
-  },
   data() {
     return {
       followdata: {},
       likeCount:0,
       switchLike:true,
+      centerDialogVisible: false,
       id:''
     };
   },
-  watch: {
-    $route(to) {
-      var reg = /followdata\/\d+/;
-      if (reg.test(to.path)) {
-        var folId = this.$route.params.id || 0;
-      }
+  mounted() {
+    //发送 隐藏footer的 action
+    if (this.$route.path.indexOf("followdata") > 0) {
+      this.$store.dispatch("hideFooter");
     }
   },
   methods: {
@@ -67,7 +70,15 @@ export default {
     likeAdd(){
       this.likeCount++;
     }
-  }
+  },
+  watch: {
+    $route(to) {
+      var reg = /followdata\/\d+/;
+      if (reg.test(to.path)) {
+        var folId = this.$route.params.id || 0;
+      }
+    }
+  },
 };
 </script>
 <style scoped>
@@ -111,7 +122,8 @@ body {
   background-size: 100%;
   float: left;
   margin-left: 0.7rem;
-  margin-top: 0.13rem;
+  margin-top: -2px;
+  margin-right: 5px;
 }
 .say span {
   height: 0.26rem;

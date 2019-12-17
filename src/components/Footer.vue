@@ -27,16 +27,11 @@ export default {
       switchIcon:[   //图片切换
         {normal: require('../assets/img/home1.png'), selected: require('../assets/img/home.png')},
         {normal: require('../assets/img/my1.png'), selected: require('../assets/img/my.png')},
-        
       ]
     }
-  },
-  methods:{
-    
   }
 }
 </script>
-
 <style scoped>
   img{
     width: 0.44rem;

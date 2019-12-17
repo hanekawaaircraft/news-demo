@@ -56,27 +56,17 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      columnData: {}
+    };
+  },
   mounted() {
     this.fetchData(this.$route.params.id);
 
     //发送 隐藏footer的 action
     if (this.$route.path.indexOf("columndata") > 0) {
       this.$store.dispatch("hideFooter");
-    }
-  },
-  data() {
-    return {
-      columnData: {}
-    };
-  },
-  watch: {
-    $route(to) {
-      //console.log(to);
-      var reg = /columndata\/\d+/;
-      if (reg.test(to.path)) {
-        var colId = this.$route.params.id || 0;
-        this.fetchData(colId);
-      }
     }
   },
   methods: {
@@ -92,7 +82,17 @@ export default {
           // console.log("文章详细页面:", err);
         });
     }
-  }
+  },
+  watch: {
+    $route(to) {
+      //console.log(to);
+      var reg = /columndata\/\d+/;
+      if (reg.test(to.path)) {
+        var colId = this.$route.params.id || 0;
+        this.fetchData(colId);
+      }
+    }
+  },
 };
 </script>
 <style scoped>
