@@ -14,6 +14,7 @@ import settime from "./components/settime.vue";
 import fx from "./components/Fx.vue";
 import setting from "./components/Setting.vue";
 import collect from "./components/admin/collect.vue";
+import draft from "./components/admin/draft.vue";
 
 export default [
   {
@@ -56,6 +57,10 @@ export default [
   {
     path: "/collect",
     component: collect
+  },
+  {
+    path: "/draft",
+    component: draft
   },
   {
     path: "/fx/:id",

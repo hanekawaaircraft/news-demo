@@ -105,7 +105,7 @@ export default {
           that.articleData = res.data[id - 1];
         })
         .catch(function(err) {
-          console.log("文章详细页面:", err);
+          // console.log("文章详细页面:", err);
         });
     },
   },
@@ -162,10 +162,6 @@ body {
   padding: 0.39rem 0.28rem 0.15rem 0.28rem;
   height: auto;
   background: none;
-}
-.header h2 {
-  float: left;
-  margin-right: 0.18rem;
 }
 .header p {
   float: left;

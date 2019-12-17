@@ -31,12 +31,14 @@
           <b></b>
           <span>0</span>
         </li>
-        <li class="cg-text">
-          <i></i>
-          <p>草稿箱</p>
-          <b></b>
-          <span>0</span>
-        </li>
+        <router-link :to="'/draft/'">
+          <li class="cg-text">
+            <i></i>
+            <p>草稿箱</p>
+            <b></b>
+            <span>0</span>
+          </li>
+        </router-link>
         <router-link :to="'/collect/'">
           <li class="sc-text">
             <i></i>
