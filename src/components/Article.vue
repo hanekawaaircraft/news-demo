@@ -33,6 +33,7 @@
                 @on-ok="ok"
                 @on-cancel="cancel">
                 <Input type="textarea" :rows="4" placeholder="整点话写在这儿" />
+                给新闻打分:<Rate v-model="rate" />
             </Modal>
 
           </a>
@@ -74,6 +75,7 @@ export default {
       likeCount:0,
       switchLike:true,
       commentArea: false,
+      rate:0,
       id:''
     };
   },

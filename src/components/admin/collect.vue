@@ -16,7 +16,8 @@
           {
             title: '时间',
             key: 'time',
-             width:'80'
+             width:'85',
+             sortable: true
           },
           {
             title: '标题',

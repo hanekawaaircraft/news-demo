@@ -5,11 +5,12 @@
           <a href="javascript:;">
             <span type="primary" @click="commentArea = true"><i></i>999+</span>
             <Modal
-                v-model="commentArea"
-                title="有啥想说的"
-                @on-ok="ok"
-                @on-cancel="cancel">
-                <Input type="textarea" :rows="4" placeholder="整点话写在这儿" />
+              v-model="commentArea"
+              title="有啥想说的"
+              @on-ok="ok"
+              @on-cancel="cancel">
+              <Input type="textarea" :rows="4" placeholder="整点话写在这儿" />
+              <Rate v-model="rate" />
             </Modal>
           </a>
         </li>
@@ -49,6 +50,7 @@ export default {
       likeCount:0,
       switchLike:true,
        commentArea: false,
+       rate:0,
       id:''
     };
   },

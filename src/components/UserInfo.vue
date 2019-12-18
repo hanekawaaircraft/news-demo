@@ -8,7 +8,7 @@
       </div>
       <ul class="clear">
         <li>
-            <p>关注</p>
+          <p>关注</p>
           <span>999+</span>
         </li>
         <li>

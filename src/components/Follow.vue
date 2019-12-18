@@ -4,7 +4,7 @@
       <ul>
         <li v-for="(item, index) in arrList" :key="index">
           <router-link :to="'/followdata/'+item.id">
-            <h2>{{ index + 1 }} .{{ item.title }}</h2>
+            <h2>{{ index + 1 }}.{{ item.title }}</h2>
             <p>{{ item.detail }}</p>
           </router-link>
         </li>

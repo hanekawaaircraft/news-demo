@@ -4,7 +4,7 @@
       <ul>
         <li v-for="(item, index) in colList" :key="index">
           <router-link :to="'/columndata/'+ item.id">
-            <h2>{{ item.title }}</h2>
+            <h2>{{ index + 1 }} . {{ item.title }}</h2>
             <p>{{ item.content }}</p>
           </router-link>
         </li>
