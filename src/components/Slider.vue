@@ -1,125 +1,61 @@
 <template>
- <div class="banner">
-     <ul class="clearfix">
-      <li>
-        <img src="../assets/images/img-1.jpg" />
-        <div class="text-box">
-          <h2>裁员百人后，华为警告在澳提供的1500个工作将流失</h2>
-          <p>观察者网 12-03 15:41</p>
-        </div>
-      </li>
-      <li>
-        <img src="../assets/images/img-1.jpg" />
-        <div class="text-box">
-          <h2>江西吉水发现一处史前遗址 距今约5000年</h2>
-          <p>环球网 12-0315:08</p>
-        </div>
-      </li>
-      <li>
-        <img src="../assets/images/img-1.jpg" />
-        <div class="text-box">
-          <h2>2家韩电池厂在美“缠斗”，大众等车企意外被“卡脖”</h2>
-          <p>观察者网 12-03 14:56</p>
-        </div>
-      </li>
-      <li>
-        <img src="../assets/images/img-1.jpg" />
-        <div class="text-box">
-          <h2>联合国气候大会开幕 古特雷斯呼吁各国“加把劲”</h2>
-          <p>看看新闻Knews 12-03 11:57</p>
-        </div>
-      </li>
-    </ul>
-    <ol>
-      <li class="active"></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ol>
-  
-    <!-- <Carousel autoplay v-model="value2" loop>
-      <CarouselItem>
-        <div class="demo-carousel">
+  <div class="banner">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
           <img src="../assets/images/img-1.jpg" />
           <div class="text-box">
             <h2>裁员百人后，华为警告在澳提供的1500个工作将流失</h2>
             <p>观察者网 12-03 15:41</p>
           </div>
         </div>
-      </CarouselItem>
-      <CarouselItem>
-        <div class="demo-carousel">
+        <div class="swiper-slide">
           <img src="../assets/images/img-1.jpg" />
           <div class="text-box">
             <h2>江西吉水发现一处史前遗址 距今约5000年</h2>
-            <p>环球网 12-03 15:08</p>
+            <p>环球网 12-0315:08</p>
           </div>
         </div>
-      </CarouselItem>
-      <CarouselItem>
-        <div class="demo-carousel">
+        <div class="swiper-slide">
           <img src="../assets/images/img-1.jpg" />
           <div class="text-box">
             <h2>2家韩电池厂在美“缠斗”，大众等车企意外被“卡脖”</h2>
             <p>观察者网 12-03 14:56</p>
           </div>
         </div>
-      </CarouselItem>
-      <CarouselItem>
-        <div class="demo-carousel">
+        <div class="swiper-slide">
           <img src="../assets/images/img-1.jpg" />
           <div class="text-box">
             <h2>联合国气候大会开幕 古特雷斯呼吁各国“加把劲”</h2>
             <p>看看新闻Knews 12-03 11:57</p>
           </div>
         </div>
-      </CarouselItem>
-    </Carousel> -->
+      </div>
+    </div>
   </div> 
 </template>
 <script>
-import '../assets/js/font'
-import '../assets/js/jquery-1.7.2.js'
-import {Swipe } from  '../assets/js/swipe.js'
+import 'swiper/dist/css/swiper.min.css'
+import Swiper from "swiper"
 export default {
-  data(){
-    return {
-      // value2: 0
-    }
-  },
   mounted() {
-    this.lbSlider();
-  },
-  watch: {
-    // '$route':function(){
-    // 	alert(1);
-    // }
+    var mySwiper = new Swiper('.swiper-container', {
+      direction: 'horizontal', 
+      loop: true, 
+      autoplay: 2000, 
+      slidesPerView: 'auto', // 设置slider容器能够同时显示的slides数量(carousel模式)。类型：number or auto
+      centeredSlides: true, // 设定为true时，active slide会居中，而不是默认状态下的居左。
+    })
   },
   methods: {
-    lbSlider() {
-      $(function() {
-        var mySwipe = new Swipe($(".banner")[0], {
-          auto: 2000,  
-          continuous: true, 
-          stopPropation: true,   
-          callback: function(index, element) { 
-            $(".banner ol li").removeClass("active"); 
-            $(".banner ol li") 
-              .eq(index) 
-              .addClass("active"); 
-          }
-        });
-      });
-    }
   }
 };
 </script>
 <style scoped>
-/* 
 img{
-width: 100%;
+  width: 100%;
   display: block;
-}
+ }
 .text-box {
   width: 100%;
   padding: 0 0.3rem;
@@ -142,5 +78,5 @@ width: 100%;
 }
 .text-box p {
   line-height: 100%;
-} */
+}
 </style>
