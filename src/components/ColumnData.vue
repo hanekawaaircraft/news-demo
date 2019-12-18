@@ -106,7 +106,7 @@ body {
   top: 0;
   left: 0;
   background: #fff;
-  border-bottom: 1px solid #e8eaec;
+  /* border-bottom: 1px solid #e8eaec; */
   z-index: 99;
 }
 .nav ul {
@@ -127,7 +127,7 @@ body {
   max-width: 6.4rem;
   margin: 0 auto;
   margin-top: 0.6rem;
-  background: #f2f4f5;
+  background: #fff;
   padding-bottom: 0.85rem;
 }
 .content .header {

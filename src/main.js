@@ -5,10 +5,14 @@ import axios from "axios";
 
 import stores from "./store/store";
 import routes from "./router.js";
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+// import ElementUI from 'element-ui';
+// import 'element-ui/lib/theme-chalk/index.css';
 
-Vue.use(ElementUI);
+import ViewUI from 'view-design';
+import 'view-design/dist/styles/iview.css';
+
+Vue.use(ViewUI);
+// Vue.use(ElementUI);
 Vue.use(VueRouter);
 
 

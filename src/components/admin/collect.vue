@@ -5,30 +5,30 @@
         <li class="l-btn" onclick="window.history.go(-1)"></li>
       </ul>
     </div>
-    <el-table
-      :data="tableData"
-      style="width: 100%">
-      <el-table-column
-        prop="time"
-        label="日期"
-        width="110">
-      </el-table-column>
-      <el-table-column
-        prop="title"
-        label="新闻"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="news"
-        label="报社">
-      </el-table-column>
-    </el-table>
+    <Table :columns="columns1" :data="tableData"></Table>
   </div>
 </template>
 <script>
   export default {
     data() {
       return {
+         columns1: [
+          {
+            title: '时间',
+            key: 'time',
+             width:'80'
+          },
+          {
+            title: '标题',
+            key: 'title',
+            
+          },
+          {
+            title: '报社',
+            key: 'news',
+            width:'100'
+          }
+        ],
         tableData: []
       }
     },
@@ -49,9 +49,7 @@
 </script>
 <style scoped>
   .content-s{
-    margin-top:50px;
-    padding-right: 10px;
-    padding-bottom: 60px;
+    margin-top:40px;
   }
   .fh-nav {
     width: 100%;
@@ -59,12 +57,12 @@
     top: 0;
     left: 0;
     background: #fff;
-    border-bottom: 1px solid #e8eaec;
+    /* border-bottom: 1px solid #e8eaec; */
     z-index: 99;
   }
   .fh-nav ul {
     width: 6.4rem;
-    height: 0.45rem;
+    height: 0.55rem;
     padding-top: 0.15rem;
     margin: 0 auto;
   }

@@ -1,23 +1,18 @@
 <template>
   <div class="foot-btn">
     <ul>
-      <li class="say">
-        <a href="javascript:;">
-          <el-button type="text" @click="centerDialogVisible=true"><i></i>999+</el-button>
-          <el-dialog
-            title="评论"
-            :modal="false"
-            :modal-append-to-body="false"
-            :visible.sync="centerDialogVisible"
-            width="80%"
-            center>
-            <el-input type="textarea" placeholder="请输入您的评论"></el-input>
-            <div slot="footer" class="dialog-footer">
-              <el-button type="primary" @click="centerDialogVisible=false">提交</el-button>
-            </div>
-          </el-dialog>
-        </a>
-      </li>
+       <li class="say">
+          <a href="javascript:;">
+            <span type="primary" @click="commentArea = true"><i></i>999+</span>
+            <Modal
+                v-model="commentArea"
+                title="有啥想说的"
+                @on-ok="ok"
+                @on-cancel="cancel">
+                <Input type="textarea" :rows="4" placeholder="整点话写在这儿" />
+            </Modal>
+          </a>
+        </li>
       <li class="zan">
         <a href="javascript:;" @click="likeAdd">
           <i></i>
@@ -53,7 +48,7 @@ export default {
       followdata: {},
       likeCount:0,
       switchLike:true,
-      centerDialogVisible: false,
+       commentArea: false,
       id:''
     };
   },
@@ -69,6 +64,12 @@ export default {
     },
     likeAdd(){
       this.likeCount++;
+    },
+    ok () {
+      this.$Message.info('上传成功了！但是没用');
+    },
+    cancel () {
+      this.$Message.info('上传失败了！但是不要紧，反正也没用');
     }
   },
   watch: {
@@ -121,11 +122,10 @@ body {
   background: url(../assets/img/say.png) no-repeat 0 0;
   background-size: 100%;
   float: left;
-  margin-left: 0.7rem;
-  margin-top: -2px;
+  margin-left: 0.54rem;
   margin-right: 5px;
 }
-.say span {
+.say a span{
   height: 0.26rem;
   float: left;
   line-height: 0.26rem;

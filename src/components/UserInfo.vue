@@ -8,29 +8,33 @@
       </div>
       <ul class="clear">
         <li>
+            <p>关注</p>
           <span>999+</span>
-          <p>关注</p>
         </li>
         <li>
-          <span>999+</span>
           <p class="end">粉丝</p>
+          <span>999+</span>
         </li>
       </ul>
     </div>
     <div class="docList">
       <ul>
-        <li class="gk-text">
-          <i></i>
-          <p>公开博文</p>
-          <b></b>
-          <span>0</span>
-        </li>
-        <li class="mm-text">
-          <i></i>
-          <p>秘密博文</p>
-          <b></b>
-          <span>0</span>
-        </li>
+        <router-link :to="'/open/'">
+          <li class="gk-text">
+            <i></i>
+            <p>公开博文</p>
+            <b></b>
+            <span>0</span>
+          </li>
+        </router-link>
+        <router-link :to="'/secret/'">
+          <li class="mm-text">
+            <i></i>
+            <p>秘密博文</p>
+            <b></b>
+            <span>0</span>
+          </li>
+        </router-link>
         <router-link :to="'/draft/'">
           <li class="cg-text">
             <i></i>

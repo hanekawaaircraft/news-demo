@@ -79,7 +79,7 @@ body {
   top: 0;
   left: 0;
   background: #fff;
-  border-bottom: 1px solid #e8eaec;
+  /* border-bottom: 1px solid #e8eaec; */
   z-index: 99;
 }
 .nav ul {

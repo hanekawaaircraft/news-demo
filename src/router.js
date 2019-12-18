@@ -15,6 +15,8 @@ import fx from "./components/Fx.vue";
 import setting from "./components/Setting.vue";
 import collect from "./components/admin/collect.vue";
 import draft from "./components/admin/draft.vue";
+import secret from "./components/admin/secret.vue";
+import open from "./components/admin/open.vue";
 
 export default [
   {
@@ -61,6 +63,14 @@ export default [
   {
     path: "/draft",
     component: draft
+  },
+  {
+    path: "/secret",
+    component: secret
+  },
+  {
+    path: "/open",
+    component: open
   },
   {
     path: "/fx/:id",

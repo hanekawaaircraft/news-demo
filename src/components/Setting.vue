@@ -5,41 +5,39 @@
         <li class="l-btn" onclick="window.history.go(-1)"></li>
       </ul>
     </div>
-    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-      <el-form-item label="修改昵称" prop="name">
-        <el-input v-model="ruleForm.name"></el-input>
-      </el-form-item>
-      <el-form-item label="地址" prop="region">
-        <el-select v-model="ruleForm.region" placeholder="请选择活动区域">
-          <el-option label="上海" value="shanghai"></el-option>
-          <el-option label="北京" value="beijing"></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="会员" prop="delivery">
-        <el-switch v-model="ruleForm.delivery"></el-switch>
-      </el-form-item>
-      <el-form-item label="其他选项" prop="type">
-        <el-checkbox-group v-model="ruleForm.type">
-          <el-checkbox label="开机自启" name="type"></el-checkbox>
-          <el-checkbox label="自动捐赠" name="type"></el-checkbox>
-          <el-checkbox label="我也不知道" name="type"></el-checkbox>
-          <el-checkbox label="这里该写什么" name="type"></el-checkbox>
-        </el-checkbox-group>
-      </el-form-item>
-      <el-form-item label="特殊资源" prop="resource">
-        <el-radio-group v-model="ruleForm.resource">
-          <el-radio label="片儿"></el-radio>
-          <el-radio label="本儿"></el-radio>
-        </el-radio-group>
-      </el-form-item>
-      <el-form-item label="意见反馈" prop="desc">
-        <el-input type="textarea" v-model="ruleForm.desc"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">更改</el-button>
-        <el-button @click="resetForm('ruleForm')">重置</el-button>
-      </el-form-item>
-    </el-form>
+    <Form :model="formItem" :label-width="80">
+        <FormItem label="更改昵称">
+            <Input v-model="formItem.input" placeholder="无内鬼，怎么中二怎么来。"></Input>
+        </FormItem>
+        <FormItem label="选择地区">
+            <Select v-model="formItem.select">
+                <Option value="beijing">北京</Option>
+                <Option value="shanghai">上海</Option>
+                <Option value="shenzhen">南昌</Option>
+            </Select>
+        </FormItem>
+        <FormItem label="设置">
+            <CheckboxGroup v-model="formItem.checkbox">
+                <Checkbox label="开机自启"></Checkbox>
+                <Checkbox label="双击退出"></Checkbox>
+                <Checkbox label="我也不知道"></Checkbox>
+                <Checkbox label="这里要写什么"></Checkbox>
+            </CheckboxGroup>
+        </FormItem>
+        <FormItem label="自动续费">
+            <i-switch v-model="formItem.switch" size="large">
+                <span slot="open">开</span>
+                <span slot="close">关</span>
+            </i-switch>
+        </FormItem>
+        <FormItem label="意见反馈">
+            <Input v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="写点啥"></Input>
+        </FormItem>
+        <FormItem>
+            <Button type="primary">更改</Button>
+            <Button style="margin-left: 8px">清空</Button>
+        </FormItem>
+    </Form>
         
   </div>
 </template>
@@ -47,58 +45,29 @@
 <script>
   export default {
     data() {
-      return {
-        ruleForm: {
-          name: '',
-          region: '',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: ''
-        },
-         rules: {
-          name: [
-            { required: true, message: '请输入新的昵称', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-          ],
-          region: [
-            { required: true, message: '请选择地址', trigger: 'change' }
-          ],
-          type: [
-            { type: 'array', required: true, message: '请至少选择一个选项', trigger: 'change' }
-          ],
-          resource: [
-            { required: true, message: '请选择“资源”，建议直接交给我', trigger: 'change' }
-          ],
-          // desc: [
-          //   { message: '这里是意见反馈', trigger: 'blur' }
-          // ]
-        }
+     return {
+      formItem: {
+        input: '',
+        select: '',
+        radio: 'male',
+        checkbox: [],
+        switch: true,
+        date: '',
+        time: '',
+        slider: [20, 50],
+        textarea: ''
       }
+    }
+
     },
     methods:{
-      submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            alert('提交了也没用');
-          } else {
-            console.log('能不能写点东西');
-            return false;
-          }
-        });
-      },
-      resetForm(formName) {
-        this.$refs[formName].resetFields();
-      }
     }
   };
 </script>
 <style scoped>
 .content-s{
-  margin-top:50px;
-  padding-right: 10px;
+  margin-top:40px;
+  padding-right: 20px;
   padding-bottom: 10px;
 }
 .fh-nav {
@@ -107,7 +76,7 @@
   top: 0;
   left: 0;
   background: #fff;
-  border-bottom: 1px solid #e8eaec;
+  /* border-bottom: 1px solid #e8eaec; */
   z-index: 99;
 }
 .fh-nav ul {

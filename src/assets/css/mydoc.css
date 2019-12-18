@@ -1,5 +1,5 @@
 body {
-  background: #f2f4f5;
+  background: #fff;
 }
 
 .content {
@@ -9,9 +9,10 @@ body {
 }
 .content .header {
   width: 6.4rem;
-  height: 2.84rem;
+  height: 3.2rem;
   background: #9e9a95;
   padding-top: 0.4rem;
+  z-index: 99;
 }
 .header h2 {
   width: 1.02rem;
@@ -62,7 +63,6 @@ body {
 .content .docList {
   width: 6.4rem;
   margin: 0 auto;
-  margin-top: 0.32rem;
 }
 .docList ul {
   border-top: 1px solid #7b7c7c;

@@ -31,7 +31,7 @@
 </template>
 <style scoped>
 body {
-  background: #f2f4f5;
+  background: #fff;
 }
 .content {
   max-width: 6.4rem;
