@@ -73,7 +73,7 @@
 .content-s{
   margin-top:40px;
   padding-right: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
 }
 .fh-nav {
   width: 100%;

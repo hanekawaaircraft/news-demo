@@ -35,8 +35,6 @@
   </div> 
 </template>
 <script>
-import 'swiper/dist/css/swiper.min.css'
-import Swiper from "swiper"
 export default {
   mounted() {
     var mySwiper = new Swiper('.swiper-container', {
