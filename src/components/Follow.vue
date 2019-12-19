@@ -20,19 +20,16 @@ export default {
     };
   },
   mounted() {
-    this.fetchData();
+    this.getData();
   },
   methods: {
-    fetchData() {
+    getData() {
       var that = this;
       this.$http
         .get("src/data/follow.data")
         .then(res => {
           that.arrList = res.data;
         })
-        .catch(err => {
-          console.log(err);
-        });
     }
   }
 };

@@ -6,11 +6,39 @@
       </ul>
     </div>
     <p>公开博文</p>
+    <Card v-for="(item, index) in colList" :key="index">
+      <div style="text-align:center">
+        <h2>{{ item.title }}</h2>
+        <p v-html="item.content"></p>
+        <Rate disabled v-model="item.rate" />
+      </div>
+    </Card>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      colList: []
+    };
+  },
+  mounted() {
+    //获取数据
+    this.getData();
+  },
+  methods: {
+    getData() {
+      this.$http.get("../../src/data/columndata.data").then((res)=> {
+        this.colList = res.data;
+      });
+    }
+  }
+}
+</script>
 <style scoped>
 .content-s{
     margin-top:40px;
+    margin-bottom: 50px;
     padding:0 10px 10px ;
   }
   .fh-nav {

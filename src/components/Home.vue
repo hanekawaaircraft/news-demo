@@ -4,7 +4,7 @@
     <div class="newsList">
       <ul>
         <li v-for="(item, index) in arrList" :key="index">
-          <router-link :to="'/article/' + item.id" @click="routerId">
+          <router-link :to="'/article/' + item.id">
             <h2>{{ index + 1 }} . {{ item.title }}</h2>
             <p>{{ item.detail }}</p>
           </router-link>
@@ -29,24 +29,13 @@ export default {
     this.getData();
   },
   methods: {
-    routerId(){
-      this.$router.push({
-        name: `article`,
-        params: {
-         id:''
-        }
-      })
-    },
     getData() {
       var that = this;
       this.$http
         .get("src/data/index.data")
-        .then(function(res) {
+        .then((res)=> {
           that.arrList = res.data;
         })
-        .catch(function(err) {
-          // console.log(err);
-        });
     }
   }
 };

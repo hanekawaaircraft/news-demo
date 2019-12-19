@@ -26,7 +26,7 @@ export default {
   methods: {
     getData() {
       var that = this;
-      this.$http.get("src/data/column.data").then(function(res) {
+      this.$http.get("src/data/column.data").then((res)=> {
         that.colList = res.data;
       });
     }
