@@ -25,9 +25,9 @@
             
           },
           {
-            title: '报社',
-            key: 'news',
-            width:'100'
+            title: '评分',
+            key: 'rate',
+            width:'70'
           }
         ],
         tableData: []

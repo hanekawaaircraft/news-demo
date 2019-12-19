@@ -7,7 +7,7 @@
     </div>
     <div class="content">
       <div class="header clear">
-        <p>{{followdata.news}}</p>
+        <p v-html="followdata.news"></p>
       </div>
       <div class="cont">
         <h3>{{ followdata.title }}</h3>

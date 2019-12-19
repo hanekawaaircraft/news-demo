@@ -6,12 +6,16 @@
       </ul>
     </div>
     <p>公开博文</p>
-    <Card v-for="(item, index) in colList" :key="index">
-      <div style="text-align:center">
-        <h2>{{ item.title }}</h2>
-        <p v-html="item.content"></p>
-        <Rate disabled v-model="item.rate" />
-      </div>
+    <Card v-for="(item, index) in followData" :key="index">
+      <router-link :to="'/followdata/'+item.id">
+        <div style="text-align:center">
+          <h2>{{ item.title }}</h2>
+          <h4>{{item.time}}</h4>
+          <p v-html="item.news"></p>
+          <Rate disabled v-model="item.rate" />
+        </div>
+      </router-link>
+      
     </Card>
   </div>
 </template>
@@ -19,7 +23,7 @@
 export default {
   data() {
     return {
-      colList: []
+      followData: []
     };
   },
   mounted() {
@@ -28,8 +32,8 @@ export default {
   },
   methods: {
     getData() {
-      this.$http.get("../../src/data/columndata.data").then((res)=> {
-        this.colList = res.data;
+      this.$http.get("../../src/data/follow.data").then((res)=> {
+        this.followData = res.data;
       });
     }
   }
