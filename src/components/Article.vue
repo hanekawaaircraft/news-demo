@@ -19,7 +19,7 @@
             </span>
           </p>
         </div>
-        <div class="text-box" v-html="articleData.content"></div>
+        <div class="text-box" v-html="articleData.detail"></div>
       </div>
     </div>
     <div class="foot-btn">
@@ -35,7 +35,6 @@
                 <Input type="textarea" :rows="4" placeholder="整点话写在这儿" />
                 给新闻打分:<Rate v-model="rate" />
             </Modal>
-
           </a>
         </li>
         <li class="zan">
@@ -80,13 +79,9 @@ export default {
     };
   },
    mounted() {
-    this.getRouterData()
     this.getData(this.$route.params.id)
   },
   methods: {
-    getRouterData() {
-      this.id = this.$route.params.id
-    },
     switchLikePng(){ 
       this.switchLike=!this.switchLike;
     },
@@ -98,12 +93,8 @@ export default {
       this.$http
         .get("../src/data/article.data")
         .then(function(res) {
-          //console.log(res.data[id]);
           that.articleData = res.data[id - 1];
         })
-        .catch(function(err) {
-          // console.log("文章详细页面:", err);
-        });
     },
     ok () {
       this.$Message.info('上传成功了！但是没用');
@@ -120,9 +111,6 @@ export default {
         this.getData(articleId);
       }
     },
-    $route: function(val) {
-      this.getRouterData()
-    }
   }
 };
 </script>

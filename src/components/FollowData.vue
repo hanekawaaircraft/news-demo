@@ -38,7 +38,7 @@ export default {
     };
   },
   mounted() {
-    this.fetchData(this.$route.params.id);
+    this.getData(this.$route.params.id);
 
     //发送 隐藏footer的 action
     if (this.$route.path.indexOf("followdata") > 0) {
@@ -46,7 +46,7 @@ export default {
     }
   },
   methods: {
-    fetchData(id) {
+    getData(id) {
       var that = this;
       this.$http
         .get("../src/data/follow.data")
@@ -64,7 +64,7 @@ export default {
       var reg = /followdata\/\d+/;
       if (reg.test(to.path)) {
         var colId = this.$route.params.id || 0;
-        this.fetchData(colId);
+        this.getData(colId);
       }
     }
   },

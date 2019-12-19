@@ -32,7 +32,7 @@ export default {
     getData() {
       var that = this;
       this.$http
-        .get("src/data/index.data")
+        .get("src/data/article.data")
         .then((res)=> {
           that.arrList = res.data;
         })
