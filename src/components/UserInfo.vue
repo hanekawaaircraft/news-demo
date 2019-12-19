@@ -11,10 +11,12 @@
           <p>关注</p>
           <span>999+</span>
         </li>
-        <li>
-          <p class="end">粉丝</p>
-          <span>999+</span>
-        </li>
+        <router-link :to="'/fans/'">
+          <li>
+            <p class="end">粉丝</p>
+            <span>999+</span>
+          </li>
+        </router-link>
       </ul>
     </div>
     <div class="docList">

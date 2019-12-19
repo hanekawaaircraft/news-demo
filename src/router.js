@@ -17,6 +17,7 @@ import collect from "./components/admin/collect.vue";
 import draft from "./components/admin/draft.vue";
 import secret from "./components/admin/secret.vue";
 import open from "./components/admin/open.vue";
+import fans from "./components/admin/fans.vue";
 
 export default [
   {
@@ -71,6 +72,10 @@ export default [
   {
     path: "/open",
     component: open
+  },
+  {
+    path: "/fans",
+    component: fans
   },
   {
     path: "/fx/:id",

@@ -5,16 +5,13 @@
         <li class="l-btn" onclick="window.history.go(-1)"></li>
       </ul>
     </div>
-    <p>公开博文</p>
-    <Card v-for="(item, index) in followData" :key="index">
-      <router-link :to="'/followdata/'+item.id">
-        <div style="text-align:center">
-          <h2>{{ item.title }}</h2>
-          <h4>{{item.time}}</h4>
-          <p v-html="item.news"></p>
-          <Rate disabled v-model="item.rate" />
-        </div>
-      </router-link>
+    <p>粉丝列表</p>
+    <Card v-for="(item, index) in fansList" :key="index">
+      <div>
+        <img src='../../assets/img/weixin1.png' class="ava"/>
+        <h2 :class="item.userstatus == 1 ? 'huiyuan' : ''">{{item.uid}}</h2>
+        <h4 :class="item.userstatus == 1 ? 'huiyuan' : ''">{{item.time}}</h4>
+      </div>
     </Card>
   </div>
 </template>
@@ -22,24 +19,23 @@
 export default {
   data() {
     return {
-      followData: []
+      fansList: []
     };
   },
   mounted() {
-    //获取数据
     this.getData();
   },
   methods: {
     getData() {
-      this.$http.get("../../src/data/follow.data").then((res)=> {
-        this.followData = res.data;
+      this.$http.get("../../src/data/fans.data").then((res)=> {
+        this.fansList = res.data;
       });
     }
   }
 }
 </script>
 <style scoped>
-.content-s{
+  .content-s{
     margin-top:40px;
     margin-bottom: 50px;
     padding:0 10px 10px ;
@@ -68,5 +64,12 @@ export default {
     background: url(../../assets/img/history.png) no-repeat 0 0;
     background-size: 100%;
     margin: 0 0 0 0.38rem;
+  }
+  .ava{
+    float:right;
+    width: 40px;
+  }
+  .huiyuan{
+    color:#f60
   }
 </style>
