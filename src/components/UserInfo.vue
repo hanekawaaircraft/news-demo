@@ -7,10 +7,12 @@
         <router-link to="/user-reg">注册</router-link>
       </div>
       <ul class="clear">
+        <router-link :to="'/fans/'">
         <li>
           <p>关注</p>
           <span>999+</span>
         </li>
+        </router-link>
         <router-link :to="'/fans/'">
           <li>
             <p class="end">粉丝</p>

@@ -2,10 +2,10 @@
   <div class="content-s">
     <FhNav></FhNav>
     <p>发表文章</p>
-    <Input type="textarea" :rows="10" placeholder="..." maxlength="600" @input = "descInput" v-model="desc"></Input>
+    <Input type="textarea" :rows="10" placeholder="写点啥..." maxlength="600" @input = "InputNum" v-model="desc"></Input>
     <span class="text">您还可以输入{{remnant}}/600字</span>
     <div class="input-button">
-      <Button type="primary">更改</Button>
+      <Button type="primary">发布</Button>
       <Button style="margin-left: 8px">暂存</Button>
     </div>
   </div>
@@ -24,9 +24,9 @@ export default {
   },
   methods: {
   //倒计数
-    descInput(){
-      var txtVal = this.desc.length;
-      this.remnant = 600-txtVal;
+    InputNum(){
+      var txtNum = this.desc.length;
+      this.remnant = 600-txtNum;
     }
   }
 }
