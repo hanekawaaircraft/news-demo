@@ -3,7 +3,7 @@
     <FhNav></FhNav>
     <div class="content">
       <div class="header clear">
-        <p>新闻编号:{{id}}</p>
+        <p>新闻编号:{{articleData.id}}</p>
       </div>
       <div class="cont">
         <h3>{{ articleData.title }}</h3>
