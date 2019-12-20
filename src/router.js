@@ -11,7 +11,7 @@ import ColumnData from "./components/ColumnData.vue";
 import FollowData from "./components/FollowData.vue";
 import Forget from "./components/Forget.vue";
 import settime from "./components/settime.vue";
-import fx from "./components/Fx.vue";
+// import fx from "./components/Fx.vue";
 import setting from "./components/Setting.vue";
 import collect from "./components/admin/collect.vue";
 import draft from "./components/admin/draft.vue";
@@ -77,11 +77,11 @@ export default [
     path: "/fans",
     component: fans
   },
-  {
-    path: "/fx/:id",
-    component: fx,
-    name:"fx"
-  },
+  // {
+  //   path: "/fx/:id",
+  //   component: fx,
+  //   name:"fx"
+  // },
   {
     path: "/article/:id",
     component: Article,

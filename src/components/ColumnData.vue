@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div class="nav">
-      <ul>
-        <li class="l-btn" onclick="window.history.go(-1)"></li>
-      </ul>
-    </div>
+    <FhNav></FhNav>
     <div class="content">
       <div class="header clear">
         <p>新华社</p>
@@ -28,10 +24,11 @@
 </template>
 <script>
 import footBtn from "./footBtn.vue";
-
+import FhNav from "./FhNav.vue";
 export default {
   components: {
-    footBtn
+    footBtn,
+    FhNav
   },
   data() {
     return {
@@ -76,28 +73,6 @@ export default {
 html,
 body {
   overflow-x: hidden;
-}
-.nav {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #fff;
-  /* border-bottom: 1px solid #e8eaec; */
-  z-index: 99;
-}
-.nav ul {
-  width: 6.4rem;
-  height: 0.45rem;
-  padding-top: 0.15rem;
-  margin: 0 auto;
-}
-.nav ul li {
-  width: 0.29rem;
-  height: 0.31rem;
-  background: url(../assets/img/history.png) no-repeat 0 0;
-  background-size: 100%;
-  margin: 0 0 0 0.38rem;
 }
 
 .content {

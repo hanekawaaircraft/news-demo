@@ -31,13 +31,11 @@
         </a>
       </li>
       <li class="fx">
-        <router-link :to="'/fx/' + id">
-          <a href="javascript:;">
-            <i>
-              <img src="../assets/img/fx.png"/>
-            </i>
-          </a>
-        </router-link>
+        <a href="javascript:;">
+          <i>
+            <img src="../assets/img/fx.png"/>
+          </i>
+        </a>
       </li>
     </ul>
   </div>

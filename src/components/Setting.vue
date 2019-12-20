@@ -1,10 +1,6 @@
 <template>
   <div class="content-s">
-    <div class="fh-nav">
-      <ul>
-        <li class="l-btn" onclick="window.history.go(-1)"></li>
-      </ul>
-    </div>
+    <FhNav></FhNav>
     <Form :model="formItem" :label-width="80">
       <FormItem label="修改头像">
         <Upload action="//jsonplaceholder.typicode.com/posts/">
@@ -49,7 +45,11 @@
 </template>
 
 <script>
+  import FhNav from "../FhNav.vue";
   export default {
+    components: {
+      FhNav
+    },
     data() {
       return {
         formItem: {
@@ -74,27 +74,5 @@
   margin-top:40px;
   padding-right: 20px;
   padding-bottom: 30px;
-}
-.fh-nav {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #fff;
-  /* border-bottom: 1px solid #e8eaec; */
-  z-index: 99;
-}
-.fh-nav ul {
-  width: 6.4rem;
-  height: 0.45rem;
-  padding-top: 0.15rem;
-  margin: 0 auto;
-}
-.fh-nav ul li {
-  width: 0.29rem;
-  height: 0.31rem;
-  background: url(../assets/img/history.png) no-repeat 0 0;
-  background-size: 100%;
-  margin: 0 0 0 0.38rem;
 }
 </style>

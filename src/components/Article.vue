@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div class="nav">
-      <ul>
-        <li class="l-btn" onclick="window.history.go(-1)"></li>
-      </ul>
-    </div>
+    <FhNav></FhNav>
     <div class="content">
       <div class="header clear">
         <p>新闻编号:{{id}}</p>
@@ -22,52 +18,17 @@
         <div class="text-box" v-html="articleData.detail"></div>
       </div>
     </div>
-    <div class="foot-btn">
-      <ul>
-        <li class="say">
-          <a href="javascript:;">
-            <span type="primary" @click="commentArea = true"><i></i>999+</span>
-            <Modal
-                v-model="commentArea"
-                title="有啥想说的"
-                @on-ok="ok"
-                @on-cancel="cancel">
-                <Input type="textarea" :rows="4" placeholder="整点话写在这儿" />
-                给新闻打分:<Rate v-model="rate" />
-            </Modal>
-          </a>
-        </li>
-        <li class="zan">
-          <a href="javascript:;" @click="likeAdd">
-            <i></i>
-            <span>{{likeCount}}</span>
-          </a>
-        </li>
-        <li class="xing">
-          <a href="javascript:;">
-            <i v-show="switchLike" @click="switchLikePng">
-              <img src="../assets/img/like0.png" />
-            </i>
-            <i v-show="!switchLike" @click="switchLikePng">
-              <img src="../assets/img/like1.png" alt />
-            </i>
-          </a>
-        </li>
-        <li class="fx">
-          <router-link :to="'/fx/' + id">
-            <a href="javascript:;">
-              <i>
-                <img src="../assets/img/fx.png"/>
-              </i>
-            </a>
-          </router-link>
-        </li>
-      </ul>
-    </div>
+    <footBtn></footBtn>
   </div>
 </template>
 <script>
+import footBtn from "./footBtn.vue";
+import FhNav from "./FhNav.vue";
 export default {
+  components: {
+    footBtn,
+    FhNav
+  },
   data() {
     return {
       articleData: {},
@@ -119,29 +80,6 @@ html,
 body {
   overflow-x: hidden;
 }
-.nav {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #fff;
-  /* border-bottom: 1px solid #e8eaec; */
-  z-index: 99;
-}
-.nav ul {
-  width: 6.4rem;
-  height: 0.45rem;
-  padding-top: 0.15rem;
-  margin: 0 auto;
-}
-.nav ul li {
-  width: 0.29rem;
-  height: 0.31rem;
-  background: url(../assets/img/history.png) no-repeat 0 0;
-  background-size: 100%;
-  margin: 0 0 0 0.38rem;
-}
-
 .content {
   max-width: 6.4rem;
   margin: 0 auto;

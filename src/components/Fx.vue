@@ -35,7 +35,6 @@
         <p>分享至微博</p>
       </div>
     </div> 
-    
   </div>
 </template>
 <script>
@@ -65,6 +64,13 @@ export default {
     $route: function(val) {
       this.getRouterData()
     }
+    //  $route(to) {
+    //   var reg = /fx\/\d+/;
+    //   if (reg.test(to.path)) {
+    //     var id = this.$route.params.id || 0;
+    //     this.getData(id);
+    //   }
+    // },
   }
 };
 </script>
@@ -106,5 +112,4 @@ body {
   flex-wrap:nowrap;
   justify-content: space-around;
 }
-
 </style>

@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div class="nav">
-      <ul>
-        <li class="l-btn" onclick="window.history.go(-1)"></li>
-      </ul>
-    </div>
+    <FhNav></FhNav>
     <div class="content">
       <div class="header clear">
         <p v-html="followdata.news"></p>
@@ -27,10 +23,12 @@
 </template>
 <script>
 import footBtn from "./footBtn.vue";
+import FhNav from "./FhNav.vue";
 
 export default {
   components: {
-   footBtn
+    footBtn,
+    FhNav
   },
   data() {
     return {
