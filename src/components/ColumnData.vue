@@ -37,7 +37,6 @@ export default {
   },
   mounted() {
     this.fetchData(this.$route.params.id);
-
     //发送 隐藏footer的 action
     if (this.$route.path.indexOf("columndata") > 0) {
       this.$store.dispatch("hideFooter");

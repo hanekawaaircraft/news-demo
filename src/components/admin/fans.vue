@@ -1,12 +1,11 @@
 <template>
   <div class="content-s">
     <FhNav></FhNav>
-    <p>粉丝列表</p>
     <Card v-for="(item, index) in fansList" :key="index">
       <div>
         <img src='../../assets/img/weixin1.png' class="ava"/>
-        <h2 :class="item.userstatus == 1 ? 'huiyuan' : ''">{{item.uid}}</h2>
-        <h4 :class="item.userstatus == 1 ? 'huiyuan' : ''">{{item.time}}</h4>
+        <h3 :class="item.userstatus == 1 ? 'huiyuan' : ''">{{item.uid}}</h3>
+        <h5>{{item.time}}</h5>
       </div>
     </Card>
   </div>
