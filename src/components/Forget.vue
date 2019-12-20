@@ -1,9 +1,7 @@
 <template>
   <div class="content">
-    <p class="fhbtn">
-      <a onclick="window.history.go(-1)"></a>
-    </p>
-     <div class="login-box">
+      <FhNav></FhNav>
+      <div class="login-box">
       <p class="lsolid"></p>
       <div class="login">
         <p>重 设 密 码</p>
@@ -32,7 +30,11 @@
   </div>
 </template>
 <script>
-export default {
+  import FhNav from "./FhNav.vue";
+  export default {
+  components: {
+    FhNav
+  },
   data(){
     return {
       show: true,
@@ -68,17 +70,6 @@ body {
 .content {
   max-width: 6.4rem;
   margin: 0 auto;
-}
-.content .fhbtn {
-  padding-top: 0.27rem;
-}
-.content .fhbtn a {
-  display: block;
-  width: 0.23rem;
-  height: 0.25rem;
-  background: url(../assets/img/history1.png) no-repeat 0 0;
-  background-size: 100%;
-  margin-left: 0.3rem;
 }
 .content h1 {
   width: 2.18rem;

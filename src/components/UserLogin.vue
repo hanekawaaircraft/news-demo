@@ -1,8 +1,6 @@
 <template>
   <div class="content">
-    <p class="fhbtn">
-      <a href="javascript:;" onclick="window.history.go(-1)"></a>
-    </p>
+    <FhNav></FhNav>
     <div class="login-box">
       <p class="lsolid"></p>
       <div class="login">
@@ -29,6 +27,14 @@
     </div>
   </div>
 </template>
+<script>
+  import FhNav from "./FhNav.vue";
+  export default {
+    components: {
+      FhNav
+    }
+  }
+</script>
 <style scoped>
 body {
   background: #fff;
@@ -36,17 +42,6 @@ body {
 .content {
   max-width: 6.4rem;
   margin: 0 auto;
-}
-.content .fhbtn {
-  padding-top: 0.27rem;
-}
-.content .fhbtn a {
-  display: block;
-  width: 0.23rem;
-  height: 0.25rem;
-  background: url(../assets/img/history1.png) no-repeat 0 0;
-  background-size: 100%;
-  margin-left: 0.3rem;
 }
 .content h1 {
   width: 2.18rem;

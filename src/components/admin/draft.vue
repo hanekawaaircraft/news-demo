@@ -7,7 +7,7 @@
         已保存博文
         <li v-for="(item, index) in followData" :key="index" slot="content">
           <router-link :to="'/followdata/'+item.id"> 
-            <h2>*{{ item.title }}</h2>
+            <p>*{{ item.title }}</p>
           </router-link> 
         </li>
       </Panel>

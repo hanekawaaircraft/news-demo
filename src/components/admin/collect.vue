@@ -27,7 +27,8 @@
           {
             title: '评分',
             key: 'rate',
-            width:'70'
+            sortable: true,
+            width:'85'
           }
         ],
         tableData: []
