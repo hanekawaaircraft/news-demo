@@ -45,7 +45,7 @@
 </template>
 
 <script>
-  import FhNav from "../FhNav.vue";
+  import FhNav from "./FhNav.vue";
   export default {
     components: {
       FhNav
