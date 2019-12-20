@@ -10,7 +10,7 @@ import Article from "./components/Article.vue";
 import ColumnData from "./components/ColumnData.vue";
 import FollowData from "./components/FollowData.vue";
 import Forget from "./components/Forget.vue";
-import settime from "./components/settime.vue";
+import publication from "./components/Publication.vue";
 // import fx from "./components/Fx.vue";
 import setting from "./components/Setting.vue";
 import collect from "./components/admin/collect.vue";
@@ -50,8 +50,8 @@ export default [
     component: Forget
   },
   {
-    path: "/settime",
-    component: settime
+    path: "/publication",
+    component: publication
   },
   {
     path: "/setting",

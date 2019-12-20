@@ -7,7 +7,7 @@
         </a>
       </router-link>
   
-      <router-link class="write" to="/settime" tag="li">
+      <router-link class="write" to="/publication" tag="li">
         <a href="javascript:;"></a>
       </router-link>
   
