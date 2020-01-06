@@ -1,6 +1,6 @@
 # vue-news-project
 
-> A Vue.js project
+> A Vue 的项目 手机端新闻网 静态
 
 ## Build Setup
 
