@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "element-ui": "^2.13.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "swiper": "^3.4.2",
     "view-design": "^4.0.2",
     "vue": "^2.1.0",
